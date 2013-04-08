@@ -1,0 +1,28 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:five="http://namespaces.zope.org/five"
+  xmlns:cmf="http://namespaces.zope.org/cmf"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="collective.pfg.email">
+
+  <includeDependencies package="." />
+
+  <class class=".field.FormEmailField"/>
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <cmf:registerDirectory name="email_atwidget"/>    
+
+  <browser:resourceDirectory
+    name="collective.pfg.email"
+    directory="resources" />
+
+  <genericsetup:registerProfile
+    name="default"
+    title="collective.pfg.email"
+    directory="profile"
+    description="Email Field for PloneFormGen"
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+</configure>
